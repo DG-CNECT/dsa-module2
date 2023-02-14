@@ -24,13 +24,14 @@ Route::get('/', function () {
 
 Route::get('/test/token', [\App\Http\Controllers\TestController::class, 'token'])->name('token');
 
-Route::get('/statement/create', [\App\Http\Controllers\StatementController::class, 'create'])->name('statement.create')->middleware('cas.auth');
 
 Route::middleware(['cas.auth'])->group(function() {
-
+    Route::get('/statement/create', [\App\Http\Controllers\StatementController::class, 'create'])->name('statement.create');
     Route::post('/statement', [\App\Http\Controllers\StatementController::class, 'store'])->name('statement.store');
-    Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'dashboard'])->name('eudashboard');
+    Route::get('/eulogout', [\App\Http\Controllers\LogoutController::class, 'logout'])->name('eulogout');
 });
+
 
 Route::get('/search', [\App\Http\Controllers\SearchController::class, 'search'])->name('search');
 Route::get('/statement', [\App\Http\Controllers\StatementController::class, 'index'])->name('statement.index');
@@ -38,19 +39,23 @@ Route::get('/statement/{statement}', [\App\Http\Controllers\StatementController:
 
 Route::get('/page/{page}', [\App\Http\Controllers\PageController::class, 'show'])->name('page.show');
 
-
 Route::resource('entity', App\Http\Controllers\EntityController::class)->except('edit', 'update', 'destroy');
 
-Route::get('/testteamslogging', function(){
-    $message = 'Test is working! It is now: ' . Carbon::now();
-    Log::info($message);
-    return $message;
-});
 
-Route::get('/env', function(){
-    $message = 'env("'.\request()->get('key', 'APP_ENV').'") -> ' . env(\request()->get('key', 'APP_ENV'));
-    Log::info($message);
-    return $message;
-});
+
+
+// Chainsaw routes
+// Uncomment only when you need to debug or test things.
+//Route::get('/testteamslogging', function(){
+//    $message = 'Test is working! It is now: ' . Carbon::now();
+//    Log::info($message);
+//    return $message;
+//});
+//
+//Route::get('/env', function(){
+//    $message = 'env("'.\request()->get('key', 'APP_ENV').'") -> ' . env(\request()->get('key', 'APP_ENV'));
+//    Log::info($message);
+//    return $message;
+//});
 
 

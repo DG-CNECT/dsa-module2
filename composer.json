@@ -6,6 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "backpack/crud": "^5.4",
+        "backpack/editable-columns": "*",
+        "backpack/pro": "^1.6",
         "cweagans/composer-patches": "^1.7",
         "erusev/parsedown": "^1.7",
         "guzzlehttp/guzzle": "^7.2",
@@ -24,6 +27,8 @@
         "timwassenburg/laravel-pivot-table-generator": "^1.0"
     },
     "require-dev": {
+        "backpack/devtools": "*",
+        "backpack/generators": "^3.3",
         "barryvdh/laravel-debugbar": "^3.7",
         "brianium/paratest": "^6.4",
         "fakerphp/faker": "^1.9.1",
@@ -85,5 +90,11 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": {
+        "backpack": {
+            "type": "composer",
+            "url": "https://repo.backpackforlaravel.com/"
+        }
+    }
 }

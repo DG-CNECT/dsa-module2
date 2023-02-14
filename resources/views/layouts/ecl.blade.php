@@ -51,7 +51,7 @@
                     </a>
                     <div class="ecl-site-header__action">
                         <div class="ecl-site-header-core__login-container">
-                            <a class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle" href="{{ route('dashboard') }}">
+                            <a class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle" href="{{ route('eudashboard') }}">
 
                             <svg class="ecl-icon ecl-icon--s ecl-site-header-core__icon" focusable="false" aria-hidden="true">
                                 <x-ecl.icon icon="log-in" />
@@ -124,12 +124,20 @@
                         <li class="ecl-menu__item" data-ecl-menu-item="" aria-expanded="false">
                             <a href="{{route('statement.index')}}" class="ecl-menu__link" data-ecl-menu-link="">Statements</a>
                         </li>
+
 {{--                        <li class="ecl-menu__item" data-ecl-menu-item="" aria-expanded="false">--}}
 {{--                            <a href="{{route('page.show', ['documentation'])}}" class="ecl-menu__link" data-ecl-menu-link="">Documentation</a>--}}
 {{--                        </li>         --}}
+
                         <li class="ecl-menu__item" data-ecl-menu-item="" aria-expanded="false">
                             <a target="_blank" href="https://github.com/DG-CNECT/dsa-module2/wiki/DSA-Transparency-Database---API-Documentation" class="ecl-menu__link" data-ecl-menu-link="">Documentation</a>
                         </li>
+
+
+                        <li class="ecl-menu__item" data-ecl-menu-item="" aria-expanded="false">
+                            <a href="{{route('backpack.dashboard')}}" class="ecl-menu__link" data-ecl-menu-link="">Administration</a>
+                        </li>
+
                     </ul>
 
                 </section>
